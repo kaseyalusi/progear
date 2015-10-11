@@ -1,7 +1,8 @@
  // app/routes.js
 
-// grab the nerd model we just created
-var Nerd = require('./models/nerd');
+// grab the pro and gear model we just created
+var Pro = require('./models/pro');
+var Gear = require('./models/gear');
 
 module.exports = function(app) {
 
@@ -10,16 +11,16 @@ module.exports = function(app) {
     // authentication routes
 
     // sample api route
-    app.get('/api/nerds', function(req, res) {
-        // use mongoose to get all nerds in the database
-        Nerd.find(function(err, nerds) {
+    app.get('/api/pro', function(req, res) {
+        // use mongoose to get all pros in the database
+        Pro.find(function(err, pros) {
 
             // if there is an error retrieving, send the error. 
             // nothing after res.send(err) will execute
             if (err)
                 res.send(err);
 
-            res.json(nerds); // return all nerds in JSON format
+            res.json(pros); // return all pros in JSON format
         });
     });
 
