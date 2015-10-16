@@ -10,6 +10,20 @@ module.exports = function(app) {
     // handle things like api calls
     // authentication routes
 
+    // CRUD functions ===============================================
+    function writePro(request, response){
+	var newPro = new Pro({
+	    name: 'harry',
+	    sport: 'balls',
+	    age: '12',
+	    team: 'har',
+	    gear: []
+	});
+	console.log(newPro);
+	newPro.save();
+	response.json("success!");
+    }
+    app.post('/api/pro', writePro);
     // sample api route
     app.get('/api/pro', function(req, res) {
         // use mongoose to get all pros in the database
